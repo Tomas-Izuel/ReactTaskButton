@@ -1,0 +1,33 @@
+{
+  "name": "ReactTaskButton",
+  "version": "1.0.1",
+  "description": "A customizable promise-based button component for React",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "clsx": "^1.2.1",
+    "lucide-react": "^0.130.0",
+    "motion": "^11.15.0",
+    "tailwind-merge": "^1.10.0"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.10.1",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.5"
+  }
+}
