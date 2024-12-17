@@ -2,7 +2,7 @@
   "name": "react-task-button",
   "version": "1.0.2",
   "description": "A customizable promise-based button component for React",
-  "main": "dist/index.js",
+ "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
@@ -11,23 +11,37 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "lint": "tsc",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "dependencies": {
-    "clsx": "^1.2.1",
+    "framer-motion": "^10.12.16",
     "lucide-react": "^0.130.0",
-    "motion": "^11.15.0",
-    "tailwind-merge": "^1.10.0"
+    "clsx": "^1.2.1",
+    "tailwind-merge": "^1.13.2"
   },
   "devDependencies": {
-    "@swc/core": "^1.10.1",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "tsup": "^6.5.0",
-    "typescript": "^4.9.5"
+    "@storybook/addon-essentials": "^7.0.20",
+    "@storybook/addon-interactions": "^7.0.20",
+    "@storybook/addon-links": "^7.0.20",
+    "@storybook/blocks": "^7.0.20",
+    "@storybook/react": "^7.0.20",
+    "@storybook/react-vite": "^7.0.20",
+    "@storybook/testing-library": "^0.0.14-next.2",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "storybook": "^7.0.20",
+    "typescript": "^5.1.3",
+    "tsup": "^6.7.0",
+    "vite": "^4.3.9"
   }
 }
+
