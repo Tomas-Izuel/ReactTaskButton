@@ -232,7 +232,7 @@ __export(src_exports, {
 module.exports = __toCommonJS(src_exports);
 // src/components/PromiseButton.tsx
 var import_react = require("react");
-var import_react2 = require("motion/react");
+var import_framer_motion = require("framer-motion");
 var import_lucide_react = require("lucide-react");
 // src/utils/cn.ts
 var import_clsx = require("clsx");
@@ -246,7 +246,7 @@ function cn() {
 // src/components/PromiseButton.tsx
 var import_jsx_runtime = require("react/jsx-runtime");
 var PromiseButton = function(param) {
-    var onClickPromise = param.onClickPromise, _param_label = param.label, label = _param_label === void 0 ? "Submit" : _param_label, _param_confirm = param.confirm, confirm = _param_confirm === void 0 ? false : _param_confirm, className = param.className, _param_disabled = param.disabled, disabled = _param_disabled === void 0 ? false : _param_disabled, loadingComponent = param.loadingComponent, successComponent = param.successComponent, errorComponent = param.errorComponent, confirmComponent = param.confirmComponent, _param_backgroundColor = param.backgroundColor, backgroundColor = _param_backgroundColor === void 0 ? "bg-blue-500" : _param_backgroundColor, _param_loadingBackgroundColor = param.loadingBackgroundColor, loadingBackgroundColor = _param_loadingBackgroundColor === void 0 ? "bg-transparent" : _param_loadingBackgroundColor, _param_successBackgroundColor = param.successBackgroundColor, successBackgroundColor = _param_successBackgroundColor === void 0 ? "bg-green-500" : _param_successBackgroundColor, _param_errorBackgroundColor = param.errorBackgroundColor, errorBackgroundColor = _param_errorBackgroundColor === void 0 ? "bg-red-500" : _param_errorBackgroundColor;
+    var onClickPromise = param.onClickPromise, _param_label = param.label, label = _param_label === void 0 ? "Submit" : _param_label, _param_confirm = param.confirm, confirm = _param_confirm === void 0 ? false : _param_confirm, className = param.className, _param_disabled = param.disabled, disabled = _param_disabled === void 0 ? false : _param_disabled, loadingComponent = param.loadingComponent, successComponent = param.successComponent, errorComponent = param.errorComponent, confirmComponent = param.confirmComponent, _param_backgroundColor = param.backgroundColor, backgroundColor = _param_backgroundColor === void 0 ? "default" : _param_backgroundColor, _param_loadingBackgroundColor = param.loadingBackgroundColor, loadingBackgroundColor = _param_loadingBackgroundColor === void 0 ? "loading-default" : _param_loadingBackgroundColor, _param_successBackgroundColor = param.successBackgroundColor, successBackgroundColor = _param_successBackgroundColor === void 0 ? "success-default" : _param_successBackgroundColor, _param_errorBackgroundColor = param.errorBackgroundColor, errorBackgroundColor = _param_errorBackgroundColor === void 0 ? "error-default" : _param_errorBackgroundColor;
     var _ref = _sliced_to_array((0, import_react.useState)("idle"), 2), status = _ref[0], setStatus = _ref[1];
     var handleClick = /*#__PURE__*/ function() {
         var _ref = _async_to_generator(function() {
@@ -327,16 +327,16 @@ var PromiseButton = function(param) {
                 return backgroundColor;
         }
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_react2.motion.button, {
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_framer_motion.motion.button, {
         onClick: !confirm ? handleClick : handleConfirm,
         disabled: disabled || status === "loading",
-        className: cn("\n        relative overflow-hidden\n        p-2\n        rounded-md\n        font-medium text-white\n        ".concat(getBackgroundColor(), "\n        transition-colors duration-300 ease-in-out\n        disabled:opacity-50 disabled:cursor-not-allowed\n      "), className),
+        className: cn("\n        relative overflow-hidden\n        p-2\n        rounded-md\n        font-medium text-white\n        ".concat(getBackgroundColor(), "\n        transition-colors duration-300 ease-in-out\n        disabled:opacity-50 disabled:cursor-not-allowed\n        h-10\n      "), status !== "confirming" && "w-10", className),
         initial: false,
         animate: {
             scale: status === "loading" ? 0.95 : 1
         },
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react2.motion.div, {
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_framer_motion.motion.div, {
                 className: "absolute inset-0 flex items-center justify-center",
                 initial: {
                     x: "-100%"
@@ -355,10 +355,10 @@ var PromiseButton = function(param) {
             }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", {
                 className: "relative z-10 min-w-[2rem] h-6 flex items-center justify-center",
-                children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_react2.AnimatePresence, {
+                children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_framer_motion.AnimatePresence, {
                     mode: "wait",
                     children: [
-                        status === "idle" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react2.motion.span, {
+                        status === "idle" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_framer_motion.motion.span, {
                             initial: {
                                 opacity: 0
                             },
@@ -371,7 +371,7 @@ var PromiseButton = function(param) {
                             className: "transition-opacity duration-200",
                             children: label
                         }, "idle"),
-                        status === "confirming" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_react2.motion.div, {
+                        status === "confirming" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_framer_motion.motion.div, {
                             initial: {
                                 opacity: 0
                             },
@@ -386,14 +386,14 @@ var PromiseButton = function(param) {
                                 children: [
                                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
                                         onClick: handleClick,
-                                        className: "p-2 bg-green-600 rounded-md",
+                                        className: "p-2 rounded-md ".concat(successBackgroundColor),
                                         children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.Check, {
                                             size: 16
                                         })
                                     }),
                                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", {
                                         onClick: handleCancel,
-                                        className: "p-2 bg-red-600 rounded-md",
+                                        className: "p-2 rounded-md ".concat(errorBackgroundColor),
                                         children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_lucide_react.X, {
                                             size: 16
                                         })
@@ -401,7 +401,7 @@ var PromiseButton = function(param) {
                                 ]
                             })
                         }, "confirming"),
-                        status !== "idle" && status !== "confirming" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_react2.motion.div, {
+                        status !== "idle" && status !== "confirming" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_framer_motion.motion.div, {
                             initial: {
                                 y: 20,
                                 opacity: 0

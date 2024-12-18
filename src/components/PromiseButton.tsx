@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Check, Loader2, X } from "lucide-react";
 
 import { cn } from "../utils/cn";
@@ -30,10 +30,10 @@ export const PromiseButton: React.FC<PromiseButtonProps> = ({
   successComponent,
   errorComponent,
   confirmComponent,
-  backgroundColor = "bg-blue-500",
-  loadingBackgroundColor = "bg-transparent",
-  successBackgroundColor = "bg-green-500",
-  errorBackgroundColor = "bg-red-500",
+  backgroundColor = 'default',
+  loadingBackgroundColor = 'loading-default',
+  successBackgroundColor = 'success-default',
+  errorBackgroundColor = 'error-default',
 }) => {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error" | "confirming"
@@ -92,7 +92,9 @@ export const PromiseButton: React.FC<PromiseButtonProps> = ({
         ${getBackgroundColor()}
         transition-colors duration-300 ease-in-out
         disabled:opacity-50 disabled:cursor-not-allowed
+        h-10
       `,
+        status !== "confirming" && "w-10",
         className
       )}
       initial={false}
@@ -134,13 +136,13 @@ export const PromiseButton: React.FC<PromiseButtonProps> = ({
                 <>
                   <button
                     onClick={handleClick}
-                    className="p-2 bg-green-600 rounded-md"
+                    className={`p-2 rounded-md ${successBackgroundColor}`}
                   >
                     <Check size={16} />
                   </button>
                   <button
                     onClick={handleCancel}
-                    className="p-2 bg-red-600 rounded-md"
+                    className={`p-2 rounded-md ${errorBackgroundColor}`}
                   >
                     <X size={16} />
                   </button>
