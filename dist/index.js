@@ -330,7 +330,7 @@ var PromiseButton = function(param) {
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_framer_motion.motion.button, {
         onClick: !confirm ? handleClick : handleConfirm,
         disabled: disabled || status === "loading",
-        className: cn("\n        relative overflow-hidden\n        p-2\n        rounded-md\n        font-medium text-white\n        ".concat(getBackgroundColor(), "\n        transition-colors duration-300 ease-in-out\n        disabled:opacity-50 disabled:cursor-not-allowed\n        h-10\n      "), status !== "confirming" && "w-10", className),
+        className: cn("\n        relative overflow-hidden\n        p-2\n        rounded-md\n        font-medium text-white\n        ".concat(getBackgroundColor(), "\n        transition-colors duration-300 ease-in-out\n        disabled:opacity-50 disabled:cursor-not-allowed\n        h-10\n      "), status !== "confirming" && status !== "idle" && "w-10", className),
         initial: false,
         animate: {
             scale: status === "loading" ? 0.95 : 1
