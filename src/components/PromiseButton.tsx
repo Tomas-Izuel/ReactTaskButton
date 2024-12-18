@@ -94,7 +94,7 @@ export const PromiseButton: React.FC<PromiseButtonProps> = ({
         disabled:opacity-50 disabled:cursor-not-allowed
         h-10
       `,
-        status !== "confirming" && "w-10",
+        (status !== "confirming" && status !== 'idle') && "w-10",
         className
       )}
       initial={false}
