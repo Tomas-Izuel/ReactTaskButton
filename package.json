@@ -1,6 +1,6 @@
 {
   "name": "react-task-button",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A customizable promise-based button component for React",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
